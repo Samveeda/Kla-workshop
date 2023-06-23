@@ -1,0 +1,15 @@
+from PIL import Image
+image1 = Image.open("C:/Users/Samveda KZ/OneDrive/Pictures/Level_1_Input_Data/wafer_image_1.png")
+image2 = Image.open("C:/Users/Samveda KZ/OneDrive/Pictures/Level_1_Input_Data/wafer_image_2.png")
+image3 = Image.open("C:/Users/Samveda KZ/OneDrive/Pictures/Level_1_Input_Data/wafer_image_3.png")
+pixels1 = image1.load()
+pixels2 = image2.load()
+pixels3 = image3.load()
+width, height = image1.size
+for y in range(height):
+    for x in range(width):
+        r1, g1, b1 = pixels1[x, y]
+        r2, g2, b2 = pixels2[x, y]
+        r3, g3, b3 = pixels3[x ,y]     
+        if not ((r1, g1, b1) == (r2, g2, b2)) and ((r1, g1, b1) == (r3, g3, b3)):
+               print(f" Single pixel error detected at pixel ({x}, {y})")  
